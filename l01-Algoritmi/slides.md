@@ -158,8 +158,9 @@ print(a and not(b))
 # Stringhe (```str```) 
 
 
-Sono sequenze come una sequenza di *caratteri* fra apici (```' '```, ```" "```) e sono **immutabili** (una volta definite non possono essere modificate. 
-Supportano le operazini di una **sequenza** (come le liste) (e.g.  *indicizazione*, *slicing*, *concatenamento*, *ripetizione* e *lunghezza*).
+Sono sequenze come una sequenza di **caratteri** fra apici (```' '```, ```" "```).
+Sono **immutabili** (una volta definite non possono essere modificate. 
+Supportano le operazioni di una **sequenza** (come le liste) (e.g.  *indicizzazione*, *slicing*, *concatenamento*, *ripetizione* e *lunghezza*).
 
 ```python
 s = "Python"
@@ -178,28 +179,47 @@ print(s[3:5])  # dall'elemento con indice 3 (incluso) a 5 (escluso)     -> 'ho'
 print(s[4:])   # dall'elemento con indice 4 (incluso) alla fine         -> 'on'
 print(s[-2:])  # dall'elemento con indice -2 (incluso) alla fine        -> 'on'
 ```
+
 --- 
 # Stringhe (cont.)
-È possibile usare l’operatore + per *concatenare* sequenze, e * per *ripetere* sequenze:
 
 ```python
+# concatenazione e ripetizione
+print('Py' + 'thon')     
+print('Py' * 2)         
+print('Ba' + 'na' * 2)   
+
+# Presenza di una stringa in un'altra tringa
+s = 'Python'
+print('P' in s)  
+print('x' in s) 
+print( 'x' not in s)   
+print('Py' in s) 
+
+# Lunghezza di una stringa
+print(len('Python'))  
+s = 'Precipitevolissimevolmente'
+print(len(s))          
+```
+---
+
+--- 
+# Stringhe (cont.)
+
+```python
+# concatenazione e ripetizione
 print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"          -> "Python
 print('Py' * 2)          # Ripeti per due volte la stringa "Py"          -> 'PyPy'
 print('Ba' + 'na' * 2)   # Concatenata "ba" alla ripetizioni di due "na" ->'Banana'
-```
-Gli operatori ```in```e ```not in``` possono essere usati per verificare se un elemento fa parte di una stringa o no. 
 
-```python
+# Presenza di una stringa in un'altra tringa
 s = 'Python'
 print('P' in s)  # controlla se 'P' è contenuto nella stringa s -> True
 print('x' in s)  # il carattere 'x' non è in s                  -> False
 print( 'x' not in s)   # "not in" esegue l'operazione inversa   -> True
 print('Py' in s)  # controlla se'Py' è contenuto in s           ->True
-```
-La funzione built-in ```len()``` può essere usata per ottenere il numero di elementi nella stringa:
 
-```python
-# Lunghezza
+# Lunghezza di una stringa
 print(len('Python'))   # stampa la lunghezza della stringa -> 6
 s = 'Precipitevolissimevolmente'
 print(len(s))           # -> 26
