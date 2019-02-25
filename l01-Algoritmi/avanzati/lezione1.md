@@ -513,14 +513,14 @@ La complessità è di $O(D+n\lg n)$ dove $D$ è la lunghezza del prefisso distin
 # Multi-key Quick Sort (Demo)
 
 <center>
-	<img src=3wayqs.png width="1024">
+	<img src=3wayqs.PNG width="1024">
 </center>
 
 ---
 # Multi-key Quick Sort (Demo)
 
 <center>
-	<img src=3wayqs2.png width="1024">
+	<img src=3wayqs2.PNG width="1024">
 </center>
 
 ---
