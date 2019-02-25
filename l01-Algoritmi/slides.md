@@ -1,8 +1,4 @@
----
-marp: true
-theme: gaia
-paginate: true
----
+
 
 <!-- $size: 16:9 -->
 
@@ -13,7 +9,7 @@ Dall'Algoritmo al Codice
 
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
-<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri</sup></sub>
+<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
 
 ---
 
@@ -158,7 +154,58 @@ print(a or b)
 print(a and not(b))
 ```
 
+--- 
+# Stringhe (```str```) 
+
+
+Sono sequenze come una sequenza di *caratteri* fra apici (```' '```, ```" "```) e sono **immutabili** (una volta definite non possono essere modificate. 
+Supportano le operazini di una **sequenza** (come le liste) (e.g.  *indicizazione*, *slicing*, *concatenamento*, *ripetizione* e *lunghezza*).
+
+```python
+s = "Python"
+
+# Indicizazione
+s = 'Python'
+print(s[0])   # elemento in posizione 0 (il primo)
+print(s[5])   # elemento in posizione 5 (il sesto)
+print(s[-1])  # elemento in posizione -1 (l'ultimo)
+print(s[-4])  # elemento in posizione -4 (il quartultimo)
+
+# Slicing
+print(s[0:2])  # sottostringa con elementi da 0 (incluso) a 2 (escluso) -> 'Py'
+print(s[:2])   # dall'inizio all'elemento con indice 2 (escluso)        -> 'Py'
+print(s[3:5])  # dall'elemento con indice 3 (incluso) a 5 (escluso)     -> 'ho'
+print(s[4:])   # dall'elemento con indice 4 (incluso) alla fine         -> 'on'
+print(s[-2:])  # dall'elemento con indice -2 (incluso) alla fine        -> 'on'
+```
+--- 
+# Stringhe (cont.)
+È possibile usare l’operatore + per *concatenare* sequenze, e * per *ripetere* sequenze:
+
+```python
+print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"          -> "Python
+print('Py' * 2)          # Ripeti per due volte la stringa "Py"          -> 'PyPy'
+print('Ba' + 'na' * 2)   # Concatenata "ba" alla ripetizioni di due "na" ->'Banana'
+```
+Gli operatori ```in```e ```not in``` possono essere usati per verificare se un elemento fa parte di una stringa o no. 
+
+```python
+s = 'Python'
+print('P' in s)  # controlla se 'P' è contenuto nella stringa s -> True
+print('x' in s)  # il carattere 'x' non è in s                  -> False
+print( 'x' not in s)   # "not in" esegue l'operazione inversa   -> True
+print('Py' in s)  # controlla se'Py' è contenuto in s           ->True
+```
+La funzione built-in ```len()``` può essere usata per ottenere il numero di elementi nella stringa:
+
+```python
+# Lunghezza
+print(len('Python'))   # stampa la lunghezza della stringa -> 6
+s = 'Precipitevolissimevolmente'
+print(len(s))           # -> 26
+```
 ---
+
 # Liste 
 
 Una lista è una collezione ordinata di zero o più elementi (:warning: anche eterogenei per tipo!).
