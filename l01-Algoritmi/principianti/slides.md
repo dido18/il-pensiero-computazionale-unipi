@@ -1,5 +1,3 @@
-
-
 <!-- $size: 16:9 -->
 
 Dall'Algoritmo al Codice
@@ -158,14 +156,14 @@ print(a and not(b))
 # Stringhe (```str```) 
 
 
-Sono sequenze come una sequenza di **caratteri** fra apici (```' '```, ```" "```).
-Sono **immutabili** (una volta definite non possono essere modificate. 
-Supportano le operazioni di una **sequenza** (come le liste) (e.g.  *indicizzazione*, *slicing*, *concatenamento*, *ripetizione* e *lunghezza*).
+Sono dichiarate come una sequenza di **caratteri** fra apici singoli  (```'foo'```) o doppi (```"foo"```).
+Sono **immutabili**, ovvero una volta definite non possono essere modificate. 
+Supportano le seguenti operazioni:
 
 ```python
 s = "Python"
 
-# Indicizazione
+# Accesso al carattere i-esimo
 s = 'Python'
 print(s[0])   # elemento in posizione 0 (il primo)
 print(s[5])   # elemento in posizione 5 (il sesto)
@@ -189,7 +187,7 @@ print('Py' + 'thon')
 print('Py' * 2)         
 print('Ba' + 'na' * 2)   
 
-# Presenza di una stringa in un'altra tringa
+# Presenza di una stringa in un'altra stringa
 s = 'Python'
 print('P' in s)  
 print('x' in s) 
@@ -201,23 +199,22 @@ print(len('Python'))
 s = 'Precipitevolissimevolmente'
 print(len(s))          
 ```
----
 
 --- 
 # Stringhe (cont.)
 
 ```python
 # concatenazione e ripetizione
-print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"          -> "Python
+print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"          -> 'Python'
 print('Py' * 2)          # Ripeti per due volte la stringa "Py"          -> 'PyPy'
-print('Ba' + 'na' * 2)   # Concatenata "ba" alla ripetizioni di due "na" ->'Banana'
+print('Ba' + 'na' * 2)   # Concatena "ba" con una doppia ripetizione di "na" ->'Banana'
 
 # Presenza di una stringa in un'altra tringa
 s = 'Python'
 print('P' in s)  # controlla se 'P' è contenuto nella stringa s -> True
 print('x' in s)  # il carattere 'x' non è in s                  -> False
 print( 'x' not in s)   # "not in" esegue l'operazione inversa   -> True
-print('Py' in s)  # controlla se'Py' è contenuto in s           ->True
+print('Py' in s)  # controlla se 'Py' è contenuto in s           ->True
 
 # Lunghezza di una stringa
 print(len('Python'))   # stampa la lunghezza della stringa -> 6
@@ -741,7 +738,8 @@ print('Merge Sort per', stop-start, "secondi.")
 ---
 # Esercizio
 
-Si può ordinare in tempo lineare conoscendo  l'intervallo $[0, M]$ in cui si trovano i numeri da ordinare?
+Si può ordinare in tempo lineare $O(n)$ conoscendo l'intervallo $[0, M]$ in cui si trovano i numeri da ordinare?
+
 
 ---
 # La morale è ancora quella...
