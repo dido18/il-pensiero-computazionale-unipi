@@ -3,17 +3,22 @@
 Dall'Algoritmo al Codice
 ===
 
-![](./img/copertina.jpg)
+
+<center>
+	<img src=./img/copertina.jpg width="500">
+</center>
 
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
-#### Lezione 1 - parte 2
+#### Lezione 1 - Parte 2
 <sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
 
 ---
-# Somamrio
-  1. Problema delle graffette
-  2.
+# Sommario
+Risoveremo insieme i seguenti problemi in Python:
+  1. Problema dalle Olimpiadi della Matematica
+  2. Quick sort
+  3. Merge sort
 
 ---
 # Un problema dalle Olimpiadi della Matematica (2015)
