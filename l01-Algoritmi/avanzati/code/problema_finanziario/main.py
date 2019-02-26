@@ -4,8 +4,8 @@ from lineare import lineare
 from quadratico import quadratico
 from cubico import cubico
 
-num_days = 10000 # number of days (length of d array)
-d = [random.randrange(-10,10) for num in range(num_days)]
+giorni = 5000 # number of days (length of d array)
+d = [random.randrange(-10,10) for num in range(giorni)]
 
 start = time.time() 
 cubico(d)

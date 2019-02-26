@@ -16,15 +16,14 @@ Dall'Algoritmo al Codice
 # Algoritmi (e Python)
 
 Risovleremo tre problemi algoritmici con Python:
-1. Un problema finanziario (algoritmo cubico, quadratico, lineare)
-2. Multi-key Quick Sort
-3. Il Problema dello Zaino
+1. Un Problema Finanziario 
+2. Multi-Key Quick Sort
+3. Il Problema della Partizione
 
 --- 
-# Un problema finanziario
+# Un Problema Finanziario
 Andamento delle quotazioni di una particolare società _S_.
 (_asse x_ =  giorni di un anno, _asse y_ =  quotazione di un’azione)
-
 
 <center>
 	<img src=./img/massima.jpg width="500">
@@ -35,7 +34,7 @@ Andamento delle quotazioni di una particolare società _S_.
 
 
 --- 
-# Sotto sequenza massima (definizione formale)
+# Sotto Sequenza Massima
 
 > Data una lista $D$ di $n$ interi (positivi e negativi), come si può stabilire la sottolista di somma massima, ovvero come possiamo scegliere due valori, $a$ e $b$, tali da ottenere il massimo $\max \limits_{a,b \in \mathbb{N}_{n}}\{\sum_{i=a}^b D[i]\}$? 
 
@@ -45,7 +44,7 @@ Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, q
 
 
 --- 
-# Algoritmo cubico (pseudocodice)
+# Algoritmo Cubico (Pseudocodice)
 
 <center>
 	<img src=./img/cubico.jpg width="850">
@@ -53,7 +52,7 @@ Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, q
 
 
 --- 
-# Algoritmo cubico (Python)
+# Algoritmo Cubico (Codice)
 
 ```python
 def cubico(d):
@@ -78,7 +77,7 @@ def cubico(d):
  ```
 
 --- 
-# Algoritmo quadratico (pseudocodice)
+# Algoritmo Quadratico (Pseudocodice)
 
 <center>
 	<img src=./img/quadratico.jpg width="850">
@@ -86,7 +85,7 @@ def cubico(d):
 
 
 --- 
-# Algoritmo quadratico (Python)
+# Algoritmo quadratico (Codice)
 
 ```python
 def quadratico(d):
@@ -110,7 +109,7 @@ def quadratico(d):
  ```
  
  --- 
-# Algoritmo lineare (pseudocodice)
+# Algoritmo Lineare (Pseudocodice)
 
 <center>
 	<img src=./img/lineare.jpg width="850">
@@ -118,7 +117,7 @@ def quadratico(d):
 
  --- 
  
-# Algoritmo lineare* (Python)
+# Algoritmo lineare* (Codice)
 
 ```python
 def lineare(d):
@@ -144,32 +143,27 @@ def lineare(d):
     print ("Porzione di d avente somma massima {}".format(d[a:v+1]))
 ```
 ---
-# Confronto tempi (sottomissione massima)
+# Prendere il tempo!
+
+:hourglass: In Python possiamo cronometrare la durata di esecuzione di un programma. Basta importare la libreria ```time``` e usare la funzione ```time.time()``` come nell'esempio qui sotto:
 
 ```python
-# import the needed functions (for space)
+import time
+import random
 
-num_days = 5000       # number of days (length of d array)
-d = [random.randrange(-10,10) for num in range(num_days)]
+giorni = 5000 
+d = [random.randrange(-10,10) for num in range(giorni)]
 
 start = time.time() 
 cubico(d)
 stop = time.time() 
 print('Cubico ', stop-start, "secondi.")
-
-start = time.time() 
-quadratico(d)
-stop = time.time() 
-print('Quadratico ', stop-start, "secondi.")
-
-start = time.time() 
-lineare(d)
-stop = time.time() 
-print('Lineare ', stop-start, "secondi.")
 ```
 
+Confrontare il tempo di esecuzione delle tre versioni dell'algoritmo.
+
 ---
-# Confronto tempi (risultati)
+# Risultati
 
 Risultati dei tempi di esecuzione con `d = 5000`: 
 ```python
@@ -177,7 +171,6 @@ Cubico  16.844367742538452 secondi.
 Quadratico  0.07895207405090332 secondi.
 Lineare  0.0009975433349609375 secondi.
 ```
-Risultati dei tempi di esecuzione con con `d = 10000`: 
 
 
 
@@ -252,7 +245,103 @@ print('MQSort',stop-start)
 
 ---
 
-# Il Problema della Partizione
+###### Multi-Key QuickSort In-Place (:nerd_face: Molto Avanzato!)
+
+```python
+def multikeyQS2(a, lo, hi, r):
+   if hi <= lo:
+      return
+   lt = lo
+   gt = hi
+   v = a[lo][r]
+   i = lo + 1
+
+   while i <= gt:
+      t = a[i][r]
+      if t < v:
+         swap(a, lt, i)
+         lt += 1
+         i += 1        
+      elif t > v:
+         swap(a, i, gt)
+         gt-=1
+      else:
+         i+=1
+
+   multikeyQS2(a, lo, lt-1, r)
+   if ord(v) >= 0:
+      multikeyQS2(a, lt, gt, r+1)
+   multikeyQS2(a, gt+1, hi, r)  
+```
+---
+
+# Il Problema della Partizione 
+
+Se abbiamo a disposizione due dischi rigidi da $s$ byte ciascuno e vogliamo usarli per memorizzare $n$ file che occupano $2s$ byte in totale, è possibile dividere i file in due **partizioni** ciascuna di $s$ byte?
+
+Formalmente:
+
+> Dato un insieme di interi $A=\{ a_{0}, \cdots, a_{n-1} \}$ tali che $\sum_{i=0}^{n-1} a_i= 2s$, vogliamo verificare se esiste $A' \subseteq A$ tale che $\sum_{a_i \in A'} a_i= s$.
+
+### Quali soluzioni esistono?
+
+---
+# Il Problema della Partizione (Soluzioni)
+
+Ce n'è una esponenziale, ovvero che impiega un tempo proporzionale a $O(2^n)$ e consiste nel generare tutti i possibili sottoinsiemi di $A$.
+
+Una soluzione più "furba" prova a risolvere una serie di sottoproblemi per arrivare alla soluzione del problema originale e sfrutta la cosiddetta **programmazione dinamica**.
+
+> Determiniamo il booleano ```T(i,j)```, per $0 \leqslant i \leqslant n$ e $0 \leqslant j \leqslant s$, che è ```True``` se e solo se esiste un sottoinsieme di $A_{i-1}=\{a_0, \cdots, a_{i-1}\}$ con somma pari a $j$.
+> 
+
+La soluzione del problema originale si troverà in $T(n,s)$.
+
+---
+# Partizione (Idea e Complessità)
+
+Banalmente: ```T(0,0) = True```e ```T(0,j) = False``` per ```j != 0```.
+
+Nel caso generale:
+
+- ```T(i,j) = True``` se ```i = 0``` e ```j = 0``` 
+- ```T(i,j) = True``` se ```i > 0``` e ```T(i-1,j) = True``` (la parte di somma $j$ non contiene $a_{i-1}$)
+- ```T(i,j) = True``` se ```i > 0```, ```j >= a[i]```  e ```T(i-1, j-a[i]) = True``` (o contiene $a_{i-1}$)
+- ```T(i,j) = False``` altrimenti.
+
+
+
+Il risultato è una tabella $T(i,j)$ che si riempie con una complessità in tempo pari a $O(ns)$ (dovendo infatti risolvere $(n+1)\times (s+1)$ sotto-problemi).
+
+---
+# Partizione (Codice)
+
+```python
+def partizione(a):
+    if (sum(a) % 2) != 0:
+        return False
+    
+    n = len(a)
+    s = sum(a)/2
+    parti = []
+    
+    for i in range(n+1):
+        parti.append([])
+        for j in range(s+1):
+            parti[i].append(False)
+
+    parti[0][0] = True
+    for i in range(1, n+1):
+        for j in range(s+1):
+            if parti[i-1][j]:
+                parti[i][j] = True
+            if j >= a[i-1] and parti[i-1][j-a[i-1]]:
+                parti[i][j] = True
+    return parti[n][s]
+```
+
+---
+# Pseudopolinomialità di Partizione
 
 
 ---
