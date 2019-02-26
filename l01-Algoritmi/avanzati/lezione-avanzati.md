@@ -390,377 +390,196 @@ elif risultato >= 60:
 else:
     print('F')
 ```
-
----
-# Un problema dalle Olimpiadi della Matematica (2015)
-
-<center>
-	<img src=graffette.png width="1024">
-</center>
-
-### Lavoro di Squadra!
-###### Provate a risolvere il problema :smile:
-
----
-# Suggerimento
-
-Federica può applicare al mucchio di graffette ciascuna di queste due funzioni ripetutamente:
-
-$$f(n) = n - 3\ \ if\ n\geqslant 3$$
-$$g(n) = n/2\ \ if\ n=2k$$
-
-Federica vince se rimangono $0$ graffette. Ciò è possibile se e solo se, alla penultima mossa, ci sono $3$ graffette sul tavolo.
-
-<center>
-	<img src=clips.jpg width="300">
-</center>
-
----
-# Soluzione
-
-I numeri buoni sono dunque tutti quelli nell'intervallo $[3, 2015]$ che portano a $3$ graffette residue con una certa sequenza di applicazioni di $f$ e $g$.
-
-Le possiamo generare (e contare!) semplicemente col seguente codice Python.
-
-```python
-soluzione = [0] * 2015 # crea una lista con 2015 zeri
-soluzione[3] = 1
-
-for i in range(3, 2015):
-   if (soluzione[i] == 1):
-      solUno = i * 2 # un numero a cui applicare g
-      solDue = i + 3 # un numero a cui applicare f
-   
-      if (solUno < 2015):
-         soluzione[solUno] = 1
-      if (solDue < 2015):
-         soluzione[solDue] = 1
-
-print(sum(soluzione))
-```
----
-# Come si risolve (b)?
-
-```python
-soluzione = [0] * 2015
-soluzione[1] = 1
-
-for i in range(1, 2015):
-   if (soluzione[i] == 1):
-      solUno = i * 2 # un numero a cui applicare g
-      solDue = i + 3 # un numero a cui applicare f
-      if (solUno < 2015):
-         soluzione[solUno] = 1
-      if (solDue < 2015):
-         soluzione[solDue] = 1
-
-print(sum(soluzione))
-```
-
----
-# Una soluzione per il caso generale?
-
-Scriviamo una **funzione** Python per risolvere il caso generale, specificando il totale delle graffette ```numGraffette``` e le graffette che da lasciare per vincere ```numVittoria```.
-
-```python
-def trovaVittorie(numGraffette, numVittoria):                
-   soluzione = [0] * numGraffette
-   soluzione[numVittoria] = 1
-
-   for i in range(1, numGraffette):
-      if (soluzione[i] == 1):
-         solUno = i * 2 # un numero a cui applicare g
-         solDue = i + 3 # un numero a cui applicare f
-         if (solUno < 2015):
-            soluzione[solUno] = 1
-         if (solDue < 2015):
-            soluzione[solDue] = 1
-            
-   return sum(soluzione)
-
-print(trovaVittorie(2015, 3)) # soluzione di (a)
-print(trovaVittorie(2015, 1)) # soluzione di (b)
-```
-
----
-
-# Il Problema dell'Ordinamento
-
-Ordinare significa riposizionare $n$ elementi di una certa collezione secondo un dato ordine.
-
-
-Vedremo e confronteremo due algoritmi di ordinamento:
-
-- *Insertion Sort* (o ordinamento per inserimento) con complessità quadratica $O(n^2)$
-- *Quick Sort* (o ordinamento veloce) con complessità linearitmica $O(n \lg n)$
-
-<center>
-	<img src=bigoh.bmp width="400">
-</center>
-
----
-# Insertion Sort (Idea)
-
-:bulb: *E' l'algoritmo con cui si riordina una mano di carte.*
-
-<center>
-	<img src=cards.bmp width="300">
-</center>
-
-Consta di tre passi:
-1. Rimuovi un elemento dalla collezione.
-2. Confrontalo coi successivi finché non trovi il suo posto nell'attuale configurazione.
-3. Ripeti finchè non sono finiti gli elementi.
-
----
-# Insertion Sort (Complessità)
-
-Se la collezione è già ordinata (caso ottimo) si impiega un tempo propozionale al numero di elementi, cioè $O(n)$.
-
-Se, invece, la sequenza è ordinata al contrario (caso pessimo) si impiega un tempo proporzionale al quadrato degli elementi da ordinare, cioè $O(n^2)$. 
-
-Infatti, al caso pessimo, si deve confrontare l'$i$-esimo elemento con gli $i-1$ successivi. Ovvero:
-
-$$\sum^n_{i=1} (n-i)= \sum^{n-1}_{j=1} j = \frac{n (n-1)}{2} = O(n^2)$$
-
-
----
-# Insertion Sort (Demo)
-
-<center>
-<iframe width="750" height="550" src="https://www.youtube.com/embed/ROalU379l3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-
-###### [Insert-sort with Romanian folk dance](https://www.youtube.com/embed/ROalU379l3U)
-
-
----
-# Insertion Sort (Pseudo-codice)
-
-<center>
-	<img src=insertionsort.png width="1024">
-</center>
-
-:books: Provate voi a eseguire il codice sulla lista ```[54,26,93,17,77,31,44,55,20]``` e implementate la funzione Python ```insertionSort(A)```.
-
----
-# Insertion Sort (Codice)
-
-```python
-def insertionSort(A):
-   for j in range(1,len(A)):
-
-     key = A[j]
-     i = j - 1
-
-     while i >= 0 and A[i] > key: # rispetto allo pseudocodice gli indici partono da 0
-         A[i+1]=A[i]
-         i = i - 1
-
-     A[i+1] = key
-```
-
-###### Esempio:
-```python
-unaLista = [54,26,93,17,77,31,44,55,20]
-insertionSort(unaLista)
-print(unaLista)
-```
-
----
-# Prendere il tempo!
-
-:hourglass: In Python possiamo cronometrare la durata di esecuzione di un programma. Basta importare la libreria ```time``` e usare la funzione ```time.time()``` come nell'esempio qui sotto:
-
-```python
-import random as rnd
-import time
-
-unaLista = []
-
-# generiamo una lista di 10000 interi a caso 
-for i in range(10000):
-   unaLista.append(rnd.randint(1,100000))
-    
-start = time.time() # segna il tempo di inizio nella variabile start
-insertionSort(unaLista)
-stop = time.time() # segna il tempo di fine nella variabile start
-print('Insertion sort per', stop-start, "secondi.")
-```
-
----
-# Quick Sort (Idea)
-
-Quick Sort è tra gli algoritmi più usati per l'ordinamento. 
-
-Utilizza un approccio *divide et impera*. 
-
-:bulb: *L'algoritmo divide la collezione in due parti, poi le ordina indipendentemente.*
-
-L'idea di base segue due passi:
-
-1. Sceglie un elemento $p$ (*pivot*) nella collezione e la divide in due sotto-collezioni, una con gli elementi $e \leqslant p$, l'altra con gli elementi $e \gt p$. Complessità: $O(n)$.
-
-<center>
-	<img src=qsortidea.png width="750">
-</center>
-
-2. Ripete (1) sulle due metà.
-
----
-# Quick Sort (Complessità)
-
-Se ogni volta scegliamo $p$ tale che la collezione si divide in $9/10$ e $1/10$, un caso abbastanza sbilanciato, e ogni volta la partizione delle sotto-collezioni ci costa $O(n)$, la complessità è:
-
-$$O(n)\cdot \log_{10}n + O(n)\cdot \log_{10/9}n \simeq O(n\lg n)$$
-
-<center>
-	<img src=qsortcomplexity.png width="600">
-</center>
-
----
-# Quick Sort (Demo)
-
-<center>
-<iframe width="750" height="550" src="https://www.youtube.com/embed/ywWBy6J5gz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-
-###### [Quick-sort with Hungarian folk dance](https://www.youtube.com/watch?v=ywWBy6J5gz8)
-
----
-# Quick Sort (Pseudo-codice)
-
-###### Quick Sort
-<center>
-	<img src=qsortpc.png width="350">
-</center>
-
-
-###### Partizionamento lineare
-<center>
-	<img src=partitionpc.png width="400">
-</center>
+--- 
+# Algoritmi e Python
+
+Risovleremo tre problemi algoritmici con Python:
+1. Sotto-sequenza massima (algoritmo cubico, quadratico, lineare)
+2. Multi-key Quick Sort
+3. Il Problema dello Zaino
 
 --- 
-# Quick Sort (Codice)
+# Problema: Sotto-sequenza Massima
 
-```python
-def quickSort(alist):
-   quickSortHelper(alist,0,len(alist)-1)
-
-def quickSortHelper(alist,first,last):
-   if first<last:
-       splitpoint = partition(alist,first,last)
-       quickSortHelper(alist,first,splitpoint-1)
-       quickSortHelper(alist,splitpoint+1,last)
-```
----
-
-```python
-def partition(alist,first,last):
-   pivotvalue = alist[first]
-   leftmark = first+1
-   rightmark = last
-   done = False
-   
-   while not done:
-       while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-           leftmark = leftmark + 1
-       while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-           rightmark = rightmark -1
-       if rightmark < leftmark:
-           done = True
-       else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
-           
-   temp = alist[first]
-   alist[first] = alist[rightmark]
-   alist[rightmark] = temp
-
-   return rightmark
-```
-
----
-# Quick Sort (Esempio)
-
-```python
-alist = [54,26,93,17,77,31,44,55,20]
-quickSort(alist)
-print(alist)
-```
-
----
-# Prendiamo i tempi!
-
-```python
-import random as rnd
-import time
-
-unaLista = []
-for i in range(10000):
-   unaLista.append(rnd.randint(1,100000))
-    
-start = time.time() # segna il tempo di inizio nella variabile start
-insertionSort(unaLista)
-stop = time.time() # segna il tempo di fine nella variabile start
-print('Insertion Sort per', stop-start, "secondi.")
-
-unaLista = []
-for i in range(10000):
-   unaLista.append(rnd.randint(1,100000))
-   
-start = time.time() # segna il tempo di inizio nella variabile start
-quickSort(unaLista)
-stop = time.time() # segna il tempo di fine nella variabile start
-print('Quick Sort per', stop-start, "secondi.")
-```
-
----
-# Merge Sort
-
-La funzione di libreria ```sorted()``` di Python implementa una variante del Merge Sort visto in classe.
-
-Provate a prendere i tempi di questa variante del Merge Sort! 
-
-```python
-unaLista = []
-for i in range(10000):
-   unaLista.append(rnd.randint(1,100000))
-   
-start = time.time() # segna il tempo di inizio nella variabile start
-sorted(unaLista)
-stop = time.time() # segna il tempo di fine nella variabile start
-print('Merge Sort per', stop-start, "secondi.")
-```
-
----
-# Esercizio
-
-Si può ordinare in tempo lineare $O(n)$ conoscendo l'intervallo $[0, M]$ in cui si trovano i numeri da ordinare?
-
-
----
-# La morale è ancora quella...
-
-> **Algoritmi efficienti** sono da considerarsi migliori di **computer potenti**.
-> O, ancora, l'accoppiata vincente è **algoritmi efficienti** su **computer potenti**.
-> 
-
-<br>
-</br>
-
+ouough
 
 <center>
-	<img src=comparison.png width="1024">
+	<img src=massima.jpg width="420">
 </center>
+
+
+
+--- 
+# Sotto sequenza massima (definizione formale)
+
+> Data una lista $D$ di $n$ interi (positivi e negativi), come si può stabilire la sottolista di somma massima, ovvero come possiamo scegliere due valori, $a$ e $b$, tali da ottenere il massimo $\max \limits_{a,b \in \mathbb{N}_{n}}\{\sum_{i=a}^b D[i]\}$? 
+
+Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, quadratica $O(n^2)$ e lineare $O(n)$. 
+
+:nerd_face: Scrivere lo pseudocodice di almeno due soluzioni e implementare la più efficiente.
+
+
+--- 
+# Algoritmo cubico (pseudocodice)
+
+<center>
+	<img src=./img/cubico.jpg width="900">
+</center>
+
+
+--- 
+# Algoritmo cubico (Python)
+
+```python
+def cubico(d):
+    n = len(d)                       # n indica il numero di elementi di d
+    max_somma = -float('inf')
+    a = 1
+    v = 0
+
+    for i in range(1, n):
+        for j in range(i, n):
+            tmp = 0  # tmp e' un valore temporaneo
+            for k in range(i, j + 1):  # sommiamo gli elementi in d[i,j]
+                tmp = tmp + d[k]
+            if tmp > max_somma:
+                max_somma = tmp
+                a = i
+                v = j
+
+    print ("Il guadagno massimo e' {}".format(max_somma))
+    print ("Esso si realizza nell'intervallo di giorni [{},{}]".format(a, v))
+    print ("Porzione di d avente somma massima {}".format(d[a:v+1]))
+ ```
+
+--- 
+# Algoritmo quadratico (pseudocodice)
+
+<center>
+	<img src=./img/quadratico.jpg width="1000">
+</center>
+
+
+--- 
+# Algoritmo quadratico (Python)
+
+```python
+def quadratico(d):
+    n = len(d)                       # n indica il numero di elementi di d
+    max_somma = -float('inf')
+    a = 1
+    v = 0
+
+    for i in range(1, n):
+        tmp = 0                      # tmp e' un valore temporaneo
+        for j in range(i, n):
+            tmp = tmp + d[j]
+            if tmp > max_somma:
+                max_somma = tmp
+                a = i
+                v = j
+
+    print ("Il guadagno massimo e' {}".format(max_somma))
+    print ("Esso si realizza nell'intervallo di giorni [{},{}]".format(a, v))
+    print ("Porzione di d avente somma massima {}".format(d[a:v+1]))
+ ```
+ 
+ --- 
+# Algoritmo lineare (pseudocodice)
+
+<center>
+	<img src=./img/lineare.jpg width="900">
+</center>
+
+ --- 
+ 
+# Algoritmo lineare* (Python)
+
+```python
+def lineare(d):
+    n = len(d)  # n indica il numero di elementi di d
+    max_somma = -float('inf')
+    a = 1
+    v = 0
+    atmp = a  # atmp e' un indice temporaneo
+    tmp = 0  # tmp e' un valore temporaneo
+
+    for i in range(1, n):
+        tmp = tmp + d[i]
+        if tmp > max_somma:
+            max_somma = tmp
+            a = atmp
+            v = i
+        if tmp < 0:
+            tmp = 0
+            atmp = i + 1
+
+    print ("Il guadagno massimo e' {}".format(max_somma))
+    print ("Esso si realizza nell'intervallo di giorni [{},{}]".format(a, v))
+    print ("Porzione di d avente somma massima {}".format(d[a:v+1]))
+```
+---
+# Confronto tempi (sottomissione massima)
+
+
+
+---
+# Multi-key Quick Sort (Idea e Complessità)
+
+Come si ordina una collezione $S$ di $n$ parole di lunghezza $L$?
+
+:bulb: _L'algoritmo è simile al Quick Sort._
+
+L'idea di base segue due passi:
+1. Sceglie una stringa $p$ (_pivot_) tra quelle da ordinare e divide la collezione $S$ in tre sotto-collezioni, una $S_{\lt}$ con le stringhe $e[r] \lt p[r]$, una $S_{=}$ con le strighe $e[r] = p[r]$ la terza $S_{\gt}$ con le stringhe $e[r] \gt p[r]$.
+2. Ripete (1) su $\langle S_{\lt}, r\rangle$, $\langle S_{=}, r+1\rangle$ e $\langle S_{\gt}, r\rangle$.
+
+La complessità è di $O(D+n\lg n)$ dove $D$ è la lunghezza del prefisso distintivo di $S$ (ovvero, quello che distingue una stringa da tutte le altre).
+
+
+---
+# Multi-key Quick Sort (Demo)
+
+<center>
+	<img src=3wayqs.PNG width="1024">
+</center>
+
+---
+# Multi-key Quick Sort (Demo)
+
+<center>
+	<img src=3wayqs2.PNG width="1024">
+</center>
+
+---
+# Multi-key Quick Sort (Codice)
+
+```python
+def multikeyQS(S,k):
+    if (len(S) <= 1):
+        return S
+    pivot_pos = random.randint(0, len(S)-1)
+    pivot_char = S[pivot_pos][k]
+    S1 = []
+    S2 = []
+    S3 = []
+    for s in S:
+        if (s[k] < pivot_char): 
+            S1.append(s)
+        elif (s[k] == pivot_char):
+                S2.append(s)
+        else: 
+            S3.append(s)
+    L1 = multikeyQS(S1,k)
+    L2 = multikeyQS(S2,k+1)
+    L3 = multikeyQS(S3,k)
+    return L1+L2+L3
+```
+---
+
+# Il Problema dello Zaino
 
 ---
 # Esercizi
 
-1. Data una stringa ```S```, come si può stabilire se è palindroma? Scrivere lo pseudocodice e il codice della funzione ```def palindromo(s):``` che restituisce ```True``` se la parola è palindroma e ```False``` altrimenti.
-
-2. Date due stringhe ```A``` e ```B```, come si può stabilire se una è l'anagramma dell'altra? Esistono almeno quattro soluzioni rispettivamente di complessità esponenziale $O(2^n)$, quadratica $O(n^2)$, linearitmica $O(n\lg n)$ e lineare $O(n)$. Scrivere lo pseudocodice di almeno due soluzioni e implementare la più efficiente.
-
-3. Data una lista $D$ di $n$ interi (positivi e negativi), come si può stabilire la sottolista di somma massima, i.e. come possiamo decidere $a$ e $b$ tali da ottenere il massimo $\max \limits_{a,b \in \mathbb{N}_{n}}\{\sum_{i=a}^b D[i]\}$. Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, quadratica $O(n^2)$ e lineare $O(n)$. Scrivere lo pseudocodice di almeno due soluzioni e implementare la più efficiente.
+> 

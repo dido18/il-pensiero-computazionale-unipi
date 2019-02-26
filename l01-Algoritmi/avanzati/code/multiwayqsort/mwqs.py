@@ -58,6 +58,16 @@ def multikeyQS2(a, lo, hi, r):
       multikeyQS2(a, lt, gt, r+1)
    multikeyQS2(a, gt+1, hi, r)
 
+def load_parole(k=500):
+   file = open("280000_parole_italiane.txt","r")
+   B = []
+   for parola in file.readlines():
+      parola = parola.replace('\n', '  ')
+      parola = k*"a" + parola
+      B.append(parola)
+   file.close()
+   return B
+       
 
 A = ["pippo", "abaco", "bar", "zoo", "mamma", "abc", "abaci", "zoa"]
 start = time.time()
@@ -80,12 +90,7 @@ stop = time.time()
 print(A_sorted)
 print('Python sorted()',stop-start)
 
-file = open("280000_parole_italiane.txt","r")
-B = []
-for parola in file.readlines():
-    parola = parola.replace('\n', '  ')
-    B.append(parola)
-file.close()
+B = load_parole()
 
 start = time.time()
 B_sorted = multikeyQS(B,0)
@@ -94,12 +99,7 @@ print(B_sorted[0:10])
 print('MQSort',stop-start)
 
 
-file = open("280000_parole_italiane.txt","r")
-B = []
-for parola in file.readlines():
-    parola = parola.replace('\n', '  ')
-    B.append(parola)
-file.close()
+B = load_parole()
 
 start = time.time()
 B_sorted = sorted(B)
@@ -108,13 +108,7 @@ print(B_sorted[0:10])
 print('Python sorted()',stop-start)
 
 
-
-file = open("280000_parole_italiane.txt","r")
-B = []
-for parola in file.readlines():
-    parola = parola.replace('\n', '  ')
-    B.append(parola)
-file.close()
+B = load_parole()
 
 start = time.time()
 multikeyQS2(B, 0, len(B) - 1, 0)
