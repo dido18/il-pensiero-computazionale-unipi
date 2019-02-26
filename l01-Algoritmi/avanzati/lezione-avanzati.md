@@ -13,21 +13,24 @@ Dall'Algoritmo al Codice
 <sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
 
 ---
-# Algoritmi e Python
+# Algoritmi (e Python)
 
 Risovleremo tre problemi algoritmici con Python:
-1. Sotto-sequenza massima (algoritmo cubico, quadratico, lineare)
+1. Un problema finanziario (algoritmo cubico, quadratico, lineare)
 2. Multi-key Quick Sort
 3. Il Problema dello Zaino
 
 --- 
-# Problema: Sotto-sequenza Massima
+# Un problema finanziario
+Andamento delle quotazioni di una particolare società _S_.
+(_asse x_ =  giorni di un anno, _asse y_ =  quotazione di un’azione)
 
-ouough
 
 <center>
-	<img src=./img/massima.jpg width="420">
+	<img src=./img/massima.jpg width="500">
 </center>
+
+**Goal**: determinare  l’istante di acquisto _a_ e quello di vendita _v_ al fine di garantire che la differenza di quotazione tra la vendita e l’acquisto sia *massima*. 
 
 
 
@@ -143,6 +146,39 @@ def lineare(d):
 ---
 # Confronto tempi (sottomissione massima)
 
+```python
+# import the needed functions (for space)
+
+num_days = 5000       # number of days (length of d array)
+d = [random.randrange(-10,10) for num in range(num_days)]
+
+start = time.time() 
+cubico(d)
+stop = time.time() 
+print('Cubico ', stop-start, "secondi.")
+
+start = time.time() 
+quadratico(d)
+stop = time.time() 
+print('Quadratico ', stop-start, "secondi.")
+
+start = time.time() 
+lineare(d)
+stop = time.time() 
+print('Lineare ', stop-start, "secondi.")
+```
+
+---
+# Confronto tempi (risultati)
+
+Risultati dei tempi di esecuzione con `d = 5000`: 
+```python
+Cubico  16.844367742538452 secondi.
+Quadratico  0.07895207405090332 secondi.
+Lineare  0.0009975433349609375 secondi.
+```
+Risultati dei tempi di esecuzione con con `d = 10000`: 
+
 
 
 ---
@@ -197,6 +233,23 @@ def multikeyQS(S,k):
     L3 = multikeyQS(S3,k)
     return L1+L2+L3
 ```
+
+---
+# Multi-key Quick Sort (Codice)
+```python
+B = []
+with open("280000_parole_italiane.txt","r") as file:
+   for parola in file.readlines():
+      parola = parola.replace('\n', '  ')
+      B.append(parola)
+
+start = time.time()
+B_sorted = multikeyQS(B,0)
+stop = time.time()
+
+print('MQSort',stop-start)
+```
+
 ---
 
 # Il Problema dello Zaino

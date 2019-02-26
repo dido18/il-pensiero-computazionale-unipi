@@ -58,14 +58,13 @@ def multikeyQS2(a, lo, hi, r):
       multikeyQS2(a, lt, gt, r+1)
    multikeyQS2(a, gt+1, hi, r)
 
-def load_parole(k=500):
-   file = open("280000_parole_italiane.txt","r")
+def load_parole(k=2):
    B = []
-   for parola in file.readlines():
-      parola = parola.replace('\n', '  ')
-      parola = k*"a" + parola
-      B.append(parola)
-   file.close()
+   with open("280000_parole_italiane.txt","r") as file:
+      for parola in file.readlines():
+         parola = parola.replace('\n', '  ')
+         parola = k*"a" + parola
+         B.append(parola)
    return B
        
 
