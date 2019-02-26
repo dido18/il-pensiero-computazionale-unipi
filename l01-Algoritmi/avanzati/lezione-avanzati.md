@@ -30,7 +30,7 @@ Andamento delle quotazioni di una particolare società _S_.
 	<img src=./img/massima.jpg width="500">
 </center>
 
-**Goal**: determinare  l’istante di acquisto _a_ e quello di vendita _v_ al fine di garantire che la differenza di quotazione tra la vendita e l’acquisto sia *massima*. 
+**Obiettivo**: determinare  l’istante di acquisto _a_ e quello di vendita _v_ al fine di garantire che la differenza di quotazione tra la vendita e l’acquisto sia *massima*. 
 
 
 
@@ -48,7 +48,7 @@ Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, q
 # Algoritmo cubico (pseudocodice)
 
 <center>
-	<img src=./img/cubico.jpg width="900">
+	<img src=./img/cubico.jpg width="850">
 </center>
 
 
@@ -81,7 +81,7 @@ def cubico(d):
 # Algoritmo quadratico (pseudocodice)
 
 <center>
-	<img src=./img/quadratico.jpg width="1000">
+	<img src=./img/quadratico.jpg width="850">
 </center>
 
 
@@ -113,7 +113,7 @@ def quadratico(d):
 # Algoritmo lineare (pseudocodice)
 
 <center>
-	<img src=./img/lineare.jpg width="900">
+	<img src=./img/lineare.jpg width="850">
 </center>
 
  --- 
@@ -252,7 +252,8 @@ print('MQSort',stop-start)
 
 ---
 
-# Il Problema dello Zaino
+# Il Problema della Partizione
+
 
 ---
 # Esercizi

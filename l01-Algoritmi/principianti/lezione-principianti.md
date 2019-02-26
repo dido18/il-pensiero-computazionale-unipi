@@ -16,9 +16,9 @@ Dall'Algoritmo al Codice
 ---
 # Sommario
 Risoveremo insieme i seguenti problemi in Python:
-  1. Problema dalle Olimpiadi della Matematica
-  2. Quick sort
-  3. Merge sort
+  1. Un Problema dalle Olimpiadi della Matematica (2015)
+  2. Quick Sort
+  3. Merge Sort
 
 ---
 # Un problema dalle Olimpiadi della Matematica (2015)
@@ -41,8 +41,10 @@ $$g(n) = n/2\ \ if\ n=2k$$
 Federica vince se rimangono $0$ graffette. Ciò è possibile se e solo se, alla penultima mossa, ci sono $3$ graffette sul tavolo.
 
 <center>
-	<img src=./img/clips.jpg width="300">
+	<img src=./img/clips.jpg width="250">
 </center>
+
+###### Si possono costruire le soluzioni vincenti usando $f^{-1}$ e $g^{-1}$ a partire da un caso base vincente?
 
 ---
 # Soluzione
@@ -157,7 +159,7 @@ $$\sum^n_{i=1} (n-i)= \sum^{n-1}_{j=1} j = \frac{n (n-1)}{2} = O(n^2)$$
 # Insertion Sort (Demo)
 
 <center>
-<iframe width="750" height="550" src=./img/"https://www.youtube.com/embed/ROalU379l3U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="750" height="550" src=https://www.youtube.com/embed/ROalU379l3U frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
 ###### [Insert-sort with Romanian folk dance](https://www.youtube.com/embed/ROalU379l3U)
@@ -251,7 +253,7 @@ $$O(n)\cdot \log_{10}n + O(n)\cdot \log_{10/9}n \simeq O(n\lg n)$$
 # Quick Sort (Demo)
 
 <center>
-<iframe width="750" height="550" src=./img/"https://www.youtube.com/embed/ywWBy6J5gz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="750" height="550" src=https://www.youtube.com/embed/ywWBy6J5gz8 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
 ###### [Quick-sort with Hungarian folk dance](https://www.youtube.com/watch?v=ywWBy6J5gz8)
