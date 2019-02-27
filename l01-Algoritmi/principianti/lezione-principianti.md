@@ -1,4 +1,6 @@
 <!-- $size: 16:9 -->
+<!-- page_number: true -->
+
 
 Dall'Algoritmo al Codice
 ===

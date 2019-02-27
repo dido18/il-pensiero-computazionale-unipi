@@ -53,8 +53,6 @@ print(math.sqrt(n)) # il risultato è...?
 ---
 
 
----
-
 # ```import this```
 
 ```md
@@ -171,15 +169,11 @@ s = "Python"
 # Accesso al carattere i-esimo
 print(s[0])   # elemento in posizione 0 (il primo)
 print(s[5])   # elemento in posizione 5 (il sesto)
-print(s[-1])  # elemento in posizione -1 (l'ultimo)
-print(s[-4])  # elemento in posizione -4 (il quartultimo)
 
 # Slicing
 print(s[0:2])  # sottostringa con elementi da 0 (incluso) a 2 (escluso) -> 'Py'
 print(s[:2])   # dall'inizio all'elemento con indice 2 (escluso)        -> 'Py'
-print(s[3:5])  # dall'elemento con indice 3 (incluso) a 5 (escluso)     -> 'ho'
 print(s[4:])   # dall'elemento con indice 4 (incluso) alla fine         -> 'on'
-print(s[-2:])  # dall'elemento con indice -2 (incluso) alla fine        -> 'on'
 ```
 
 --- 
@@ -192,14 +186,11 @@ print('Py' * 2)
 print('Ba' + 'na' * 2)   
 
 # Presenza di una stringa in un'altra stringa
-s = 'Python'
-print('P' in s)  
-print('x' in s) 
-print( 'x' not in s)   
+s = 'Python' 
 print('Py' in s) 
+print( 'x' not in s)
 
 # Lunghezza di una stringa
-print(len('Python'))  
 s = 'Precipitevolissimevolmente'
 print(len(s))          
 ```
@@ -209,21 +200,18 @@ print(len(s))
 
 ```python
 # concatenazione e ripetizione
-print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"              -> 'Python'
-print('Py' * 2)          # Ripeti per due volte la stringa "Py"              -> 'PyPy'
-print('Ba' + 'na' * 2)   # Concatena "ba" con una doppia ripetizione di "na" -> 'Banana'
+print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"              
+print('Py' * 2)          # Ripeti per due volte la stringa "Py"              
+print('Ba' + 'na' * 2)   # Concatena "ba" con una doppia ripetizione di "na" 
 
 # Presenza di una stringa in un'altra tringa
-s = 'Python'
-print('P' in s)         # controlla se 'P' è contenuto nella stringa s -> True
-print('x' in s)         # il carattere 'x' non è in s                  -> False
-print( 'x' not in s)    # "not in" esegue l'operazione inversa         -> True
-print('Py' in s)        # controlla se 'Py' è contenuto in s           -> True
+s = 'Python'               
+print( 'x' not in s)    # "not in" esegue l'operazione inversa         
+print('Py' in s)        # controlla se 'Py' è contenuto in s          
 
 # Lunghezza di una stringa
-print(len('Python'))   # stampa la lunghezza della stringa -> 6
 s = 'Precipitevolissimevolmente'
-print(len(s))           
+print(len(s))            # stampa la lunghezza della stringa -> 6
 ```
 ---
 
@@ -367,5 +355,3 @@ elif risultato >= 60:
 else:
     print('F')
 ```
---- 
-

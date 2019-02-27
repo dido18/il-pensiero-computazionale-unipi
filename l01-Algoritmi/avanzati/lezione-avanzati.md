@@ -1,4 +1,5 @@
 <!-- $size: 16:9 -->
+<!-- page_number: true -->
 
 Dall'Algoritmo al Codice
 ===
@@ -90,7 +91,7 @@ def cubico(d):
 
 
 --- 
-# Algoritmo quadratico (Codice)
+# Algoritmo Quadratico (Codice)
 
 ```python
 def quadratico(d):
@@ -137,7 +138,7 @@ def quadratico(d):
 
  --- 
  
-# Algoritmo lineare* (Codice)
+# Algoritmo Lineare (Codice)
 
 ```python
 def lineare(d):
