@@ -144,6 +144,18 @@ Consta di tre passi:
 3. Ripeti finchè non sono finiti gli elementi.
 
 ---
+# Insertion Sort (Complessità)
+
+Se la collezione è già ordinata (caso ottimo) si impiega un tempo propozionale al numero di elementi, cioè $O(n)$.
+
+Se, invece, la sequenza è ordinata al contrario (caso pessimo) si impiega un tempo proporzionale al quadrato degli elementi da ordinare, cioè $O(n^2)$. 
+
+Infatti, al caso pessimo, si deve confrontare l'$i$-esimo elemento con gli $i-1$ successivi. Ovvero:
+
+$$\sum^n_{i=1} (n-i)= \sum^{n-1}_{j=1} j = \frac{n (n-1)}{2} = O(n^2)$$
+
+
+---
 # Insertion Sort (Demo)
 
 <center>
@@ -225,6 +237,17 @@ L'idea di base segue due passi:
 </center>
 
 2. Ripete (1) sulle due metà.
+
+---
+# Quick Sort (Complessità)
+
+Se ogni volta scegliamo $p$ tale che la collezione si divide in $9/10$ e $1/10$, un caso abbastanza sbilanciato, e ogni volta la partizione delle sotto-collezioni ci costa $O(n)$, la complessità è:
+
+$$O(n)\cdot \log_{10}n + O(n)\cdot \log_{10/9}n \simeq O(n\lg n)$$
+
+<center>
+	<img src=./img/qsortcomplexity.png width="600">
+</center>
 
 ---
 # Quick Sort (Demo)
