@@ -9,7 +9,7 @@ Dall'Algoritmo al Codice
 
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
-###### Lezione 1 - Parte 2 (per _coder_ esperti) 
+###### Lezione 1 - Parte 2 (per _coder_ "esperti") 
 <sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
 
 ---
@@ -202,7 +202,7 @@ Come si ordina una collezione $S$ di $n$ parole di lunghezza $L$?
 :bulb: _L'algoritmo è simile al QuickSort._
 
 L'idea di base segue due passi che si applicano a $\langle S, r \rangle$: 
-1. Sceglie una stringa $p$ (_pivot_) tra quelle da ordinare e divide la collezione $S$ in tre sotto-collezioni, una $S_{\lt}$ con le stringhe $s[r] \lt p[r]$, una $S_{=}$ con le strighe $s[r] = p[r]$ la terza $S_{\gt}$ con le stringhe $s[r] \gt p[r]$.
+1. Sceglie una stringa $p$ (_pivot_) tra quelle da ordinare e divide la collezione $S$ in tre sotto-collezioni, una $S_{\lt}$ con le stringhe $s$ tali che $s[r] \lt p[r]$, una $S_{=}$ con le strighe $s$ tali che $s[r] = p[r]$, la terza $S_{\gt}$ con le stringhe $s$ tali che $s[r] \gt p[r]$.
 2. Ripete (1) su $\langle S_{\lt}, r\rangle$, $\langle S_{=}, r+1\rangle$ e $\langle S_{\gt}, r\rangle$.
 
 La complessità in tempo è $O(D+n\lg n)$ dove $D$ è la lunghezza del prefisso distintivo di $S$ (ovvero, quello che distingue una stringa da tutte le altre).
@@ -377,4 +377,3 @@ Questa _anomalia_ è dovuta al fatto che, per valori numerici sufficientemente g
 
 
 
-> 
