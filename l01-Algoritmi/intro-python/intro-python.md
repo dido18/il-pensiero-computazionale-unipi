@@ -1,5 +1,7 @@
 <!-- $size: 16:9 -->
 
+<!-- page_number: true -->
+
 Dall'Algoritmo al Codice
 ===
 <center>
@@ -12,29 +14,32 @@ Dall'Algoritmo al Codice
 <sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
 
 ---
+# Sommario - Introduzione a Python
+- Introduzione alla programmazione
+- Variabili
+- Tipi di dato (`int`,`float`, `bool`, `str`)
+- Liste 
+- Input Output I/O (`input()`, `print()`)
+- Costrutti iterativi (`while`, `for`)
+- Costrutti condizionali (`if`, `if-else`, `if-elif-else`)
 
-# Che cos'è l'Informatica?
-
-L'Informatica è lo studio di come si immagazzina ed elabora l'informazione in modo automatico. 
-
-L'Informatica si occupa di problemi, della loro risoluzione, e delle soluzioni che vengono fuori dalla loro soluzione. 
-
-Dato un problema, un informatico sviluppa un **algoritmo**, una serie di finita di istruzioni per risolvere qualunque istanza del problema un passo alla volta. Gli algoritmi sono soluzioni.
-
-L'implementazione degli algoritmi, la loro **codifica** (_coding_) in un certo **linguaggio di programmazione**, è necessaria per sperimentare al calcolatore gli algoritmi progettati su carta.
 
 ---
 # La Programmazione
 
 In generale, possiamo immaginare un programma come una scatola magica che, presi dei **dati in ingresso** (_input_) produce, seguendo un algoritmo, un **risultato in uscita** (_output_). 
 
-![](./img/blackbox.png)
+
+<center>
+  <img src=./img/blackbox.png width=500>
+</center>
 
 La funzione ```math.sqrt(n)``` restituisce la radice quadrata di ```n```:
 
 ```python
-import math # importiamo la libreria matematica
-n = 16 # assegniamo ad n il valore 16
+import math         # importiamo la libreria matematica
+
+n = 16              # assegniamo ad n il valore 16
 print(math.sqrt(n)) # il risultato è...?
 ```
 
@@ -44,6 +49,9 @@ print(math.sqrt(n)) # il risultato è...?
 <center>
   <img src=./img/speedometer.jpg width=650>
 </center>
+
+---
+
 
 ---
 
@@ -116,20 +124,16 @@ print(type(s))
 ---
 # Numeri (```int``` o ```float```)
 
+
 Proviamo queste operazioni in Python interattivo! :smile:
 
 ```python
 print(2+3*4)
 print((2+3)*4)
 print(2**10)
-print(6/3)
 print(7/3)
 print(7//3)
 print(7%3)
-print(3/6)
-print(3//6)
-print(3%6)
-print(2**100)
 ```
 A quali operazioni corrispondono ```**```, ```//``` e ```%```?
 
@@ -148,7 +152,7 @@ print(10 > 5)
 print((5 >= 1) and (5 <= 10))
 
 a = 30 > 8
-b = 6 != 4 # != corrisponde a 'diverso da', 'non è uguale'
+b = 6 != 4        # != corrisponde a 'diverso da', 'non è uguale'
 print(a and b)
 print(a or b)
 print(a and not(b))
@@ -159,14 +163,12 @@ print(a and not(b))
 
 
 Sono dichiarate come una sequenza di **caratteri** fra apici singoli  (```'foo'```) o doppi (```"foo"```).
-Sono **immutabili**, ovvero una volta definite non possono essere modificate. 
-Supportano le seguenti operazioni:
+
 
 ```python
 s = "Python"
 
 # Accesso al carattere i-esimo
-s = 'Python'
 print(s[0])   # elemento in posizione 0 (il primo)
 print(s[5])   # elemento in posizione 5 (il sesto)
 print(s[-1])  # elemento in posizione -1 (l'ultimo)
@@ -207,21 +209,21 @@ print(len(s))
 
 ```python
 # concatenazione e ripetizione
-print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"          -> 'Python'
-print('Py' * 2)          # Ripeti per due volte la stringa "Py"          -> 'PyPy'
-print('Ba' + 'na' * 2)   # Concatena "ba" con una doppia ripetizione di "na" ->'Banana'
+print('Py' + 'thon')     # Concatena la stringa "Py" con "thon"              -> 'Python'
+print('Py' * 2)          # Ripeti per due volte la stringa "Py"              -> 'PyPy'
+print('Ba' + 'na' * 2)   # Concatena "ba" con una doppia ripetizione di "na" -> 'Banana'
 
 # Presenza di una stringa in un'altra tringa
 s = 'Python'
-print('P' in s)  # controlla se 'P' è contenuto nella stringa s -> True
-print('x' in s)  # il carattere 'x' non è in s                  -> False
-print( 'x' not in s)   # "not in" esegue l'operazione inversa   -> True
-print('Py' in s)  # controlla se 'Py' è contenuto in s           ->True
+print('P' in s)         # controlla se 'P' è contenuto nella stringa s -> True
+print('x' in s)         # il carattere 'x' non è in s                  -> False
+print( 'x' not in s)    # "not in" esegue l'operazione inversa         -> True
+print('Py' in s)        # controlla se 'Py' è contenuto in s           -> True
 
 # Lunghezza di una stringa
 print(len('Python'))   # stampa la lunghezza della stringa -> 6
 s = 'Precipitevolissimevolmente'
-print(len(s))           # -> 26
+print(len(s))           
 ```
 ---
 
@@ -254,61 +256,35 @@ Gli elementi di una lista di ```n``` elementi sono indicizzati da ```0``` a ```n
 # Funzioni su Liste 
 
 ```python
-myList = [1024, 3, True, 6.5]
-myList.append(False) 
-print(myList)
-myList.insert(2,4.5) 
-print(myList)
-print(myList.pop()) 
-print(myList)
-print(myList.pop(1))
-print(myList)
+myList = [1024, 3, 7, 6.5]
+
+# aggiungere un elemento
+myList.append(1) 
+
+#indice di un elmento
+print(myList.index(7)) 
+
+# rimuovere un elemento
+myList.remove(3) 
+myList.pop(1)
+
+# ordinare
 myList.sort() 
-print(myList)
 myList.reverse() 
-print(myList)
-print(myList.count(6.5))
-print(myList.index(4.5)) 
-myList.remove(6.5) 
-print(myList)
-del myList[0] 
-print(myList)
-```
- 
 
----
-# Funzioni su Liste
+# Numero di elementi contenuti nella lista
+print(len(myList))
 
-```python
-myList = [1024, 3, True, 6.5]
-myList.append(False) # aggiungere elementi alla fine
-print(myList)
-myList.insert(2,4.5) # inserire elemento in posizione 2
-print(myList)
-print(myList.pop()) # rimuovere e restituire l'ultimo elemento
-print(myList)
-print(myList.pop(1)) # rimuovere e restituire l'elemento 1
-print(myList)
-myList.sort() # ordinare la lista
-print(myList)
-myList.reverse() # invertire la lista
-print(myList)
-print(myList.count(6.5)) # contare quante volte compare un elemento
-print(myList.index(4.5)) # ottenere la posizione di un elemento
-myList.remove(6.5) # rimuovere la prima occorrenza di un elemento
-print(myList)
-del myList[0] # rimuovere un elemento indicato
 print(myList)
 ```
 ---
+
 
 # Input e Output
 
-La funzione di output in Python è, come abbiamo visto, la ```print()```.
+- La funzione di **output** in Python è, come abbiamo visto, la ```print()```.
 
-La funzione di input in Python è invece la ```input(msg)``` che prende come parametro opzionale ```msg``` un messaggio di cortesia destinato all'utente.
-
-Il risultato della ```input(msg)``` è una stringa che contiene quanto digitato dall'utente prima di premere invio.
+- La funzione di **input** in Python è invece la ```input(msg)```. Prende come parametro opzionale ```msg``` un messaggio di cortesia destinato all'utente. Il risultato della ```input(msg)``` è una stringa che contiene quanto digitato dall'utente prima di premere invio.
 
 ```python
 nome = input('Inserisci il tuo nome: ')
@@ -347,7 +323,7 @@ for elemento in ['ciao', 'come', 'stai', '?']:
 
 # Costrutto Condizionale
 
-#### Costrutto Condizionale Semplice (```if-then```)
+#### Costrutto Condizionale Semplice (```if```)
 
 
 ```python
@@ -356,11 +332,10 @@ numero = int(input('Inserire il dividendo:'))
 if divisore != 0:
    risultato = dividendo / divisore
    print(dividendo, 'diviso', divisore, 'è uguale a', 'risultato')
-else:
-   print('Impossibile dividere per 0!')
+
 ```
 
-#### Costrutto Condizionale a Due Rami (```if-then-else```)
+#### Costrutto Condizionale a Due Rami (```if-else```)
 
 ```python
 dividendo = int(input('Inserire il dividendo:'))
