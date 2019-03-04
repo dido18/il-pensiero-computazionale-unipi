@@ -15,10 +15,10 @@ Crittografia
 ---
 # Cosa faremo oggi ?
 Sommario:
- - Intro python (30 min)
- - Cifrario di Cesare (1.30 h)
- - OneTimePad (2h)
- - DiffieHelman: esponenzazione veloce (2h)
+ - \[Intro Python\]
+ - Cifrario di Cesare 
+ - OneTimePad 
+ - Diffie - Hellman: esponenziazione per quadrature successive
 
 ---
 # Cifrario di Cesare
