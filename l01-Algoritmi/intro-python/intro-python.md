@@ -315,11 +315,12 @@ for elemento in ['ciao', 'come', 'stai', '?']:
 
 
 ```python
-numero = int(input('Inserire il dividendo:'))
+dividendo = int(input('Inserire il dividendo:'))
+divisore = int(input('Inserire il divisore:'))
 
 if divisore != 0:
    risultato = dividendo / divisore
-   print(dividendo, 'diviso', divisore, 'è uguale a', 'risultato')
+   print(dividendo, 'diviso', divisore, 'è uguale a', risultato)
 
 ```
 
@@ -331,7 +332,7 @@ divisore = int(input('Inserire il divisore:'))
 
 if divisore != 0:
    risultato = dividendo / divisore
-   print(dividendo, 'diviso', divisore, 'è uguale a', 'risultato')
+   print(dividendo, 'diviso', divisore, 'è uguale a', risultato)
 else:
    print('Impossibile dividere per 0!')
 ```

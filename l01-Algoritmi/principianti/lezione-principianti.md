@@ -56,17 +56,17 @@ I numeri buoni sono dunque tutti quelli nell'intervallo $[3, 2015]$ che portano 
 Le possiamo generare (e contare!) semplicemente col seguente codice Python.
 
 ```python
-soluzione = [0] * 2015 # crea una lista con 2015 zeri
+soluzione = [0] * 2016 # crea una lista con tutti zeri da 0 a 2015 (incluso)
 soluzione[3] = 1
 
-for i in range(3, 2015):
+for i in range(3, 2016):
    if (soluzione[i] == 1):
       solUno = i * 2 # un numero a cui applicare g
       solDue = i + 3 # un numero a cui applicare f
    
-      if (solUno < 2015):
+      if (solUno < 2016):
          soluzione[solUno] = 1
-      if (solDue < 2015):
+      if (solDue < 2016):
          soluzione[solDue] = 1
 
 print(sum(soluzione))
@@ -75,16 +75,16 @@ print(sum(soluzione))
 # Come si risolve (b)?
 
 ```python
-soluzione = [0] * 2015
+soluzione = [0] * 2016 # crea una lista con tutti zeri da 0 a 2015 (incluso)
 soluzione[1] = 1
 
-for i in range(1, 2015):
+for i in range(1, 2016):
    if (soluzione[i] == 1):
       solUno = i * 2 # un numero a cui applicare g
       solDue = i + 3 # un numero a cui applicare f
-      if (solUno < 2015):
+      if (solUno < 2016):
          soluzione[solUno] = 1
-      if (solDue < 2015):
+      if (solDue < 2016):
          soluzione[solDue] = 1
 
 print(sum(soluzione))
@@ -96,8 +96,9 @@ print(sum(soluzione))
 Scriviamo una **funzione** Python per risolvere il caso generale, specificando il totale delle graffette ```numGraffette``` e le graffette che da lasciare per vincere ```numVittoria```.
 
 ```python
-def trovaVittorie(numGraffette, numVittoria):                
-   soluzione = [0] * numGraffette
+def trovaVittorie(numGraffette, numVittoria):      
+   numGraffette = numGraffette + 1
+   soluzione = [0] * numGraffette 
    soluzione[numVittoria] = 1
 
    for i in range(1, numGraffette):
@@ -209,6 +210,7 @@ stop = time.time() # segna il tempo di fine nella variabile start
 print('Insertion sort per', stop-start, "secondi.")
 ```
 
+
 ---
 # Quick Sort (Idea)
 
@@ -302,6 +304,24 @@ print(alist)
 ```
 
 ---
+# Merge Sort
+
+La funzione di libreria ```sorted()``` di Python implementa una variante del Merge Sort visto in classe.
+
+Provate a prendere i tempi di questa variante del Merge Sort! 
+
+```python
+unaLista = []
+for i in range(10000):
+   unaLista.append(rnd.randint(1,100000))
+   
+start = time.time() # segna il tempo di inizio nella variabile start
+sorted(unaLista)
+stop = time.time() # segna il tempo di fine nella variabile start
+print('Merge Sort per', stop-start, "secondi.")
+```
+
+---
 # Prendiamo i tempi!
 
 ```python
@@ -325,26 +345,19 @@ start = time.time() # segna il tempo di inizio nella variabile start
 quickSort(unaLista)
 stop = time.time() # segna il tempo di fine nella variabile start
 print('Quick Sort per', stop-start, "secondi.")
+
 ```
 
 ---
-# Merge Sort
+# Prendere il tempo!
 
-La funzione di libreria ```sorted()``` di Python implementa una variante del Merge Sort visto in classe.
-
-Provate a prendere i tempi di questa variante del Merge Sort! 
-
+Tempo di esecuzione dei tre algoritmi di ordinamento con `20000` elementi sulla "nostra" macchina.
 ```python
-unaLista = []
-for i in range(10000):
-   unaLista.append(rnd.randint(1,100000))
-   
-start = time.time() # segna il tempo di inizio nella variabile start
-sorted(unaLista)
-stop = time.time() # segna il tempo di fine nella variabile start
-print('Merge Sort per', stop-start, "secondi.")
-```
+Insertion sort per 33.475194454193115 secondi.
+Quick Sort per 0.09186649322509766 secondi.
+Merge Sort per 0.007998466491699219 secondi.
 
+```
 ---
 # Esercizio
 
@@ -365,6 +378,7 @@ Si può ordinare in tempo lineare $O(n)$ conoscendo l'intervallo $[0, M]$ in cui
 <center>
 	<img src=./img/comparison.png width="1024">
 </center>
+
 
 ---
 # Esercizi

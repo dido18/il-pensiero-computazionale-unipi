@@ -1,7 +1,8 @@
-# PRoblem dalle olimpiadi di matematica (2015)
+# Soluzione in Python dalle olimpiadi di matematica (2015)
 
-def trovaVittorie(numGraffette, numVittoria):                
-   soluzione = [0] * numGraffette
+def trovaVittorie(numGraffette, numVittoria):      
+   numGraffette = numGraffette + 1
+   soluzione = [0] * numGraffette 
    soluzione[numVittoria] = 1
 
    for i in range(1, numGraffette):
@@ -15,6 +16,6 @@ def trovaVittorie(numGraffette, numVittoria):
             
    return sum(soluzione)
 
+print(trovaVittorie(2015, 3)) # soluzione di (a) = 671
+print(trovaVittorie(2015, 1)) # soluzione di (b) = 1343
 
-print(trovaVittorie(2015, 3)) # soluzione di (a)
-print(trovaVittorie(2015, 1)) # soluzione di (b)

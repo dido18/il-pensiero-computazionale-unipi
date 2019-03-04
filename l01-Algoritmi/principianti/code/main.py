@@ -4,7 +4,7 @@ import time
 from insertionsort import insertionSort
 from quicksort import  quickSort 
 
-num_elements = 10000   # lunghezza della lista da ordinare
+num_elements = 20000   # lunghezza della lista da ordinare
 
 unaLista = []
 # generiamo una lista di 10000 interi a caso 
