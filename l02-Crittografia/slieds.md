@@ -1,9 +1,7 @@
-
 <!-- $size: 16:9 -->
 <!-- page_number: true -->
 
-
-Crittografi 
+Crittografia
 ===
 <center>
 	<img src=./img/copertina.jpg width="500">
