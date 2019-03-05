@@ -38,13 +38,7 @@ La _chiave_ del cifrario (o _rotazione_) è rappresentata dal numero di posizion
 
 Scegliendo $k=13$ come chiave, 
 
-Giulio Cesare (100-44 a.C.) inviava messaggi facendo "scorrere" l'alfabeto come mostrato dall'anello qui sotto:
 
-<center>
-	<img src=./img/cifrario.bmp width="300">
-</center>
-
-La _chiave_ del cifrario (o _rotazione_) è rappresentata dal numero di posizioni $k$ di cui far scorrere ciascuna lettera del messaggio ($k=13$ nell'esempio).
 
 ---
 # One Time Pad (OTP)- il "cifrario perfetto"
@@ -58,11 +52,11 @@ Venivano equipaggiati di taccuini ("pad" in inglese) contenenti una lunga chiave
 # One Time Pad (OTP) - il "cifrario perfetto"
 Tecnica di crittografia inattaccabile (comprovata da una dimostrazione matematica).
  
- La chiave deve essere:
-    - **random**
- 	- lunga **almeno quanto** il messaggio
- 	- **non riutilizzabile**.
- 	- **segreta e condivisa** trale parti.
+La chiave deve essere:
+ - **random**
+ - lunga **almeno quanto** il messaggio
+ - **non riutilizzabile**.
+ - **segreta e condivisa** trale parti.
 
 
 
