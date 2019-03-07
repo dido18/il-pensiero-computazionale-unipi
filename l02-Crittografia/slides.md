@@ -15,7 +15,7 @@ Laboratorio di Crittografia
 ---
 # Cosa faremo oggi ?
 
- - \[Introduzione al Python\] :snake:
+ - \[Introduzione al Python :snake: \]
  - Cifrario di Cesare 
  - One Time Pad 
  - Diffie-Hellman e l'Esponenziazione Veloce
@@ -244,12 +244,14 @@ Testo in chiaro: C I A O  | 2 8  0 4
 
 ---
 
-# One Time Pad (OTP) - Con carta igienica :)
-Come fare:
-- comprare due rotoli di carta igienica e due pennarelli.
-- incontrarsi in un luogo segreto e scrivere una chiave **segreta** su ciascuno dei due rotoli (una lettera per ogni strappo)
+# Un'Introduzione _Hands-On_ a OTP
 
-### GIOCO A SQUADRE !!!
+Come fare:
+- si usano due rotoli di carta igienica e due pennarelli,
+- incontrarsi in un luogo segreto e scrivere una chiave **segreta** su ciascuno dei due rotoli (una lettera per ogni strappo).
+
+### Proviamo! :smiley:
+
 <center>
 	<img src=./img/carta.jpg width="300">
 </center>
