@@ -235,13 +235,14 @@ Testo in chiaro: C I A O  | 2 8  0 4
 # Un'Introduzione _Hands-On_ a OTP
 
 Come fare:
-- si usano due rotoli di carta igienica e due pennarelli,
-- incontrarsi in un luogo segreto e scrivere una chiave **segreta** su ciascuno dei due rotoli (una lettera per ogni strappo).
+- procurarsi due rotoli di carta igienica e due pennarelli,
+- incontrarsi e scrivere una chiave **segreta** e **casuale** su ciascuno dei due rotoli (una lettera per ogni strappo),
+- cifrare e decifrare un messaggio usando la chiave sul rotolo.
 
 ### Proviamo! :smiley:
 
 <center>
-	<img src=./img/carta.jpg width="300">
+	<img src=./img/carta.jpg width="280">
 </center>
 
 
@@ -408,13 +409,13 @@ Una delle parti cruciali dell'algoritmo DH riguarda il tempo di calcolo del valo
 
 Il metodo si basa sulla regola _ricorsiva_:
 
-$$x^n = x(x^2)^{\lceil\frac{n-1}{2}\rceil}\ \ se\ n \ dispari$$
+$$x^n = x(x^2)^{\frac{n-1}{2}}\ \ se\ n \ dispari$$
 
-$$x^n = (x^2)^{\lceil\frac{n}{2}\rceil}\ \ se\ n \ pari$$
+$$x^n = (x^2)^{\frac{n}{2}}\ \ se\ n \ pari$$
 
-col caso base che $x^0 = 1$ e $x^1 = x$, e considerando che per $x<0$ si ha che $x^n= \frac{1}{x^{-n}}$.
+col caso base che $x^0 = 1$ e $x^1 = x$, e considerando che per $n<0$ si ha che $x^n= \frac{1}{x^{-n}}$.
 
-Questa operazione esegue al più $\lfloor {\lg n} \rfloor = O(\lg n)$ passaggi invece di $O(n)$ necessari per eseguire l'esponenziazione classica per moltiplicazioni successive.
+L'esponenziazione veloce esegue al più $\lfloor {\lg n} \rfloor = O(\lg n)$ moltiplicazioni invece delle $n-1=O(n)$ necessarie per eseguire l'esponenziazione classica per moltiplicazioni successive.
 
 ---
 # Esercizio 3
@@ -456,9 +457,9 @@ def quadrature_successive(x, n):
      elif n == 1:
           return x
      elif n % 2 == 0:
-          return quadrature_successive(x*x, math.ceil(n/2))
+          return quadrature_successive(x*x, n//2)
      elif n % 2 == 1:
-          return x * quadrature_successive(x*x, math.ceil((n-1)/2))
+          return x * quadrature_successive(x*x, (n-1)//2)
 ```
 
 ---
