@@ -171,7 +171,7 @@ Affinchè OTP funzioni e sia possibile considerarlo perfetto, la chiave $k$ deve
  - completamente **casuale**,
  - lunga **almeno quanto** il messaggio,
  - **non riutilizzabile**,
- - **segreta e condivisa** trale parti.
+ - **segreta e condivisa** tra le parti.
 
 
 ---
