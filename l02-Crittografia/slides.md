@@ -147,7 +147,7 @@ A chi è destinato il messaggio che Eva ed Eustachio hanno rubato a una famosa s
 ---
 # Esercizio 1
 
-Definire la funzione  ```def cifra_cesare(m, k):``` e la funzione ```def decifra_cesare(m, k):``` che permettano l'utilizzo di una chiave ```k``` arbitraria per cifrare e decifrare il messaggio in ingresso ```m```.
+Definire la funzione  ```def cifra_cesare(m, k):``` e la funzione ```def decifra_cesare(m, k):``` che permettano l'utilizzo di una chiave ```k``` arbitraria per cifrare e decifrare il messaggio ```m```.
 
 
 ---
@@ -409,8 +409,6 @@ Una delle parti cruciali dell'algoritmo DH riguarda il tempo di calcolo del valo
 Il metodo si basa sulla regola _ricorsiva_:
 
 $$x^n = x(x^2)^{\lceil\frac{n-1}{2}\rceil}\ \ se\ n \ dispari$$
-
-e
 
 $$x^n = (x^2)^{\lceil\frac{n}{2}\rceil}\ \ se\ n \ pari$$
 
