@@ -1,4 +1,3 @@
-import math
 import time
 
 def quadrature_successive(x, n):
@@ -9,9 +8,9 @@ def quadrature_successive(x, n):
      elif n == 1:
           return x
      elif n % 2 == 0:
-          return quadrature_successive(x*x, math.ceil(n/2))
+          return quadrature_successive(x*x, n//2 ) 
      elif n % 2 == 1:
-          return x * quadrature_successive(x*x, math.ceil((n-1)/2))
+          return x * quadrature_successive(x*x, (n-1)//2)
 
 def exponential(x, n):
      result = 1
@@ -34,6 +33,8 @@ if __name__ == '__main__':
      for i in range(n):
           result = result * x
      stop = time.time()
-
+    
      print("Moltiplicazioni Successive (s): ",stop-start)
+     print(r1 == result)
+
 
