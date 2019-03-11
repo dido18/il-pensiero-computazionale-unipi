@@ -5,15 +5,12 @@ from suffixarray import buildSA
 def substringSearch(t, sa, p):
     assert t[-1] == '$'      # se t ha il terminatore
     assert len(t) == len(sa) # sa è il sa di t
-    if len(t) == 1: return 1
- 
-    # invariant: sa[l] < p < sa[r]
-    n = len(sa) 
-    l = 0
-    r = n - 1
+    if len(t) == 1: return 1 # 
 
-    while l != r : #<= r: # l <= j:
-        # math.floor() restituisce l'intero <= x piu' vicino a x
+    n = len(sa) 
+    l, r = 0, n-1
+
+    while l != r: 
         m = int(math.floor((l + r) / 2))
         suffixM = t[sa[m]:]
         if p > suffixM:
@@ -24,7 +21,7 @@ def substringSearch(t, sa, p):
     if suffixL.startswith(p):
         return l
     else:
-        return -1
+        return None
 
 def binarysearchSAWhile(t, sa, p):
     assert t[-1] == '$' # t already has terminator
@@ -55,5 +52,17 @@ if __name__ == "__main__":
     T = 'mississippi$' 
     SA = buildSA(T)
     P = "ssi"
-    print(binarysearchSAWhile(T, SA,P))
-    print(substringSearch(T, SA, P))
+    isa = substringSearch(T, SA, P)
+    if isa is None:
+        print("Substring ", P, " not found")
+    else:
+        print("Substring ", P, " found in" , T[SA[isa]:])
+    
+    P = "ti"
+    isa = substringSearch(T, SA, P)
+    if isa is None:
+        print("Substring ", P, " not found")
+    else:
+        print("Substring ", P, " found in" , T[SA[isa]:])
+
+    #print(binarysearchSAWhile(T, SA,P))
