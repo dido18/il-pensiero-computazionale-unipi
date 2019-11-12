@@ -105,9 +105,9 @@ def trovaVittorie(numGraffette, numVittoria):
       if (soluzione[i] == 1):
          solUno = i * 2 # un numero a cui applicare g
          solDue = i + 3 # un numero a cui applicare f
-         if (solUno < 2015):
+         if (solUno < 2016):
             soluzione[solUno] = 1
-         if (solDue < 2015):
+         if (solDue < 2016):
             soluzione[solDue] = 1
             
    return sum(soluzione)
