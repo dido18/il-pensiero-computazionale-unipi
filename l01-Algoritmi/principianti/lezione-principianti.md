@@ -105,9 +105,9 @@ def trovaVittorie(numGraffette, numVittoria):
       if (soluzione[i] == 1):
          solUno = i * 2 # un numero a cui applicare g
          solDue = i + 3 # un numero a cui applicare f
-         if (solUno < 2015):
+         if (solUno < numGraffette):
             soluzione[solUno] = 1
-         if (solDue < 2015):
+         if (solDue < numGraffette):
             soluzione[solDue] = 1
             
    return sum(soluzione)
@@ -269,29 +269,20 @@ def quickSortHelper(alist,first,last):
 ---
 
 ```python
-def partition(alist,first,last):
-   pivotvalue = alist[first]
-   leftmark = first+1
-   rightmark = last
-   done = False
-   
-   while not done:
-       while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-           leftmark = leftmark + 1
-       while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-           rightmark = rightmark -1
-       if rightmark < leftmark:
-           done = True
-       else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
-           
-   temp = alist[first]
-   alist[first] = alist[rightmark]
-   alist[rightmark] = temp
+def partition(alist, first, last):
+    pivot = alist[last]
+    i = first - 1
+    for j in range(first, last):
+        if alist[j] <= pivot:
+            i = i + 1
+            swap(alist, i, j)
+    swap(alist, i + 1, last)
+    return i + 1
 
-   return rightmark
+def swap(alist, i, j):
+    temp = alist[i]
+    alist[i] = alist[j]
+    alist[j] = temp
 ```
 
 ---
