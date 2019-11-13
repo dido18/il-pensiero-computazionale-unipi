@@ -108,6 +108,7 @@ def trovaVittorie(numGraffette, numVittoria):
          if (solUno < numGraffette):
             soluzione[solUno] = 1
          if (solDue < numGraffette):
+
             soluzione[solDue] = 1
             
    return sum(soluzione)
