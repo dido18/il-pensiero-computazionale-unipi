@@ -2,16 +2,14 @@
 
 Dall'Algoritmo al Codice
 ===
-
-
 <center>
-	<img src=./img/copertina.jpg width="500">
+	<img src=./img/copertina.jpg width="400">
 </center>
 
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
 #### Lezione 1 - Parte 2 (per coder "principianti")
-<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
+<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti), [Davide Neri](http://pages.di.unipi.it/neri/) e [Luca Rinaldi](https://lucar.in)</sup></sub>
 
 ---
 # Sommario

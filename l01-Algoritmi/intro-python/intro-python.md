@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 <!-- $size: 16:9 -->
 
 <!-- page_number: true -->
@@ -5,13 +9,13 @@
 Dall'Algoritmo al Codice
 ===
 <center>
-  <img src=./img/copertina.jpg width=500>
+  <img src=./img/copertina.jpg width=400>
 </center>
 
 ## [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ##### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
 ###### Lezione 1 - Parte 1
-<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
+<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti), [Davide Neri](http://pages.di.unipi.it/neri/) e [Luca Rinaldi](https://lucar.in)</sup></sub>
 
 ---
 # Sommario - Introduzione a Python
@@ -311,8 +315,7 @@ for elemento in ['ciao', 'come', 'stai', '?']:
 
 # Costrutto Condizionale
 
-#### Costrutto Condizionale Semplice (```if```)
-
+##### Costrutto Condizionale Semplice (```if```)
 
 ```python
 dividendo = int(input('Inserire il dividendo:'))
@@ -321,10 +324,9 @@ divisore = int(input('Inserire il divisore:'))
 if divisore != 0:
    risultato = dividendo / divisore
    print(dividendo, 'diviso', divisore, 'è uguale a', risultato)
-
 ```
 
-#### Costrutto Condizionale a Due Rami (```if-else```)
+##### Costrutto Condizionale a Due Rami (```if-else```)
 
 ```python
 dividendo = int(input('Inserire il dividendo:'))
