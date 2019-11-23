@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 <!-- $size: 16:9 -->
 <!-- page_number: true -->
 
@@ -7,11 +11,10 @@ Dall'Algoritmo al Codice
   <img src=./img/copertina.jpg width=400>
 </center>
 
-
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
 ###### Lezione 1 - Parte 2 (per _coder_ "esperti") 
-<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
+<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti), [Davide Neri](http://pages.di.unipi.it/neri/) e [Luca Rinaldi](https://lucar.in)</sup></sub>
 
 ---
 # Algoritmi (e Python)
@@ -43,16 +46,14 @@ Esistono almeno tre soluzioni rispettivamente di complessità cubica $O(n^3)$, q
 
 :nerd_face: Scrivere lo pseudocodice di almeno due soluzioni e implementare la più efficiente.
 
-
 --- 
 # Algoritmo Cubico (Pseudocodice)
 
 ###### Si provano tutti i possibili intervalli $[i,j]$ e si memorizza la soluzione migliore trovata ogni volta.
 
 <center>
-	<img src=./img/cubico.jpg width="800">
+	<img src=./img/cubico.jpg width="700">
 </center>
-
 
 --- 
 # Algoritmo Cubico (Codice)
@@ -86,7 +87,7 @@ def cubico(d):
 ###### Si provano tutti i possibili intervalli in $[1,n]$ mediante il calcolo incrementale della somma di ogni porzione di vettore esaminata, memorizzando la soluzione migliore trovata.
 
 <center>
-	<img src=./img/quadratico.jpg width="800">
+	<img src=./img/quadratico.jpg width="700">
 </center>
 
 
@@ -133,7 +134,7 @@ def quadratico(d):
 ###### Si provano $n$ intervalli in $[1,n]$, memorizzando la soluzione migliore trovata ogni volta.
 
 <center>
-	<img src=./img/lineare.jpg width="800">
+	<img src=./img/lineare.jpg width="700">
 </center>
 
  --- 

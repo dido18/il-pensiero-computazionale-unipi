@@ -1,19 +1,21 @@
+---
+marp: true
+---
+
 <!-- $size: 16:9 -->
 <!-- page_number: true -->
 
 
 Dall'Algoritmo al Codice
 ===
-
-
 <center>
-	<img src=./img/copertina.jpg width="500">
+	<img src=./img/copertina.jpg width="400">
 </center>
 
 ##### [Il Pensiero Computazionale](http://ilpensierocomputazionale.di.unipi.it/)
 ###### Percorso Formativo per i Docenti della Scuola Secondaria di II Grado
 #### Lezione 1 - Parte 2 (per coder "principianti")
-<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti) and  [Davide Neri](http://pages.di.unipi.it/neri/)</sup></sub>
+<sub><sup>[Stefano Forti](http://pages.di.unipi.it/forti), [Davide Neri](http://pages.di.unipi.it/neri/) e [Luca Rinaldi](https://lucar.in)</sup></sub>
 
 ---
 # Sommario
@@ -43,7 +45,7 @@ $$g(n) = n/2\ \ if\ n=2k$$
 Federica vince se rimangono $0$ graffette. Ciò è possibile se e solo se, alla penultima mossa, ci sono $3$ graffette sul tavolo.
 
 <center>
-	<img src=./img/clips.jpg width="250">
+	<img src=./img/clips.jpg width="200">
 </center>
 
 ###### Si possono costruire le soluzioni vincenti usando $f^{-1}$ e $g^{-1}$ a partire da un caso base vincente?
@@ -100,7 +102,6 @@ def trovaVittorie(numGraffette, numVittoria):
    numGraffette = numGraffette + 1
    soluzione = [0] * numGraffette 
    soluzione[numVittoria] = 1
-
    for i in range(1, numGraffette):
       if (soluzione[i] == 1):
          solUno = i * 2 # un numero a cui applicare g
@@ -110,9 +111,7 @@ def trovaVittorie(numGraffette, numVittoria):
          if (solDue < numGraffette):
 
             soluzione[solDue] = 1
-            
    return sum(soluzione)
-
 print(trovaVittorie(2015, 3)) # soluzione di (a)
 print(trovaVittorie(2015, 1)) # soluzione di (b)
 ```
